@@ -2,13 +2,14 @@
     @section('content')
    <!-- Title -->
 
+
    <h1 class="mt-4">{{$post->title}}</h1>
 
 
    <!-- Author -->
    <p class="lead">
      by
-   <a href="#">{{$post->user}}</a>
+   <a href="#">{{$post->user->name}}</a>
    </p>
 
    <hr>
@@ -19,7 +20,8 @@
    <hr>
 
    <!-- Preview Image -->
-   <img class="img-fluid rounded" src="{{$post->post_image}}" alt="">
+
+   <img width="100px" class="img-fluid rounded" src="{{$post->path}}" alt="">
 
    <hr>
 

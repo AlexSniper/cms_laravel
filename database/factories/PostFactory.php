@@ -24,7 +24,7 @@ class PostFactory extends Factory
     {
         return [
             'user_id' =>$this->factory('App\User'),
-            'title'=> $this->faker->sentence,
+            'title'=> $this->faker->sentence(10),
             'post_image'=>$this->faker->imageUrl('900', '300'),
             'body'=>$this->faker->paragraph
         ];

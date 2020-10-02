@@ -111,7 +111,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login Screens:</h6>
             <a class="collapse-item" href="{{route('home')}}">Home</a>
-            <a class="collapse-item" href="{{route('post')}}">Blog</a>
+
             <a class="collapse-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
@@ -399,6 +399,8 @@
     </div>
   </div>
 
+
+
   <!-- Bootstrap core JavaScript-->
   <script src= {{asset("vendor/jquery/jquery.min.js")}}></script>
   <script src={{asset("vendor/bootstrap/js/bootstrap.bundle.min.js")}}></script>
@@ -408,7 +410,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src={{asset("js/sb-admin-2.min.js")}}></script>
-@yeild('script')
+@yield('scripts')
 
 </body>
 
