@@ -44,4 +44,16 @@ class User extends Authenticatable
     public function getAvatarAttribute($value){
         return asset($value);
     }
+
+    //Accessing Post Model
+     public function posts(){
+        return $this->hasMany(Post::class);
+    }
+    public function roles(){
+
+        return $this->belongsToMany(Role::class);
+
+    }
+
+
 }

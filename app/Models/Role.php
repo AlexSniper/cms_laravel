@@ -10,7 +10,7 @@ class Role extends Model
     protected $guarded = [];
 
 
-
+//Accessing User class
     public function users(){
 
 

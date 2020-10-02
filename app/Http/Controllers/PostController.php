@@ -87,8 +87,9 @@ public function store(CreatePostRequest $request){
 
 
 public function index(){
-
-$posts= Post::all();
+$posts =auth()->user()->posts();
+dd($posts);
+// $posts= Post::all();
     return view('admin.post.index',['posts'=>$posts]);
 }
 
