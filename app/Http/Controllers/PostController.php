@@ -37,9 +37,9 @@ public function show(Post $post){
 
 
     public function userId(){
+        $posts=  Auth::user()->posts();
 
-
-        $posts= Post::all();
+        //$posts= Post::all();
             return view('admin.post.create',['post'=>$posts]);
 
 
@@ -87,9 +87,10 @@ public function store(CreatePostRequest $request){
 
 
 public function index(){
-$posts =auth()->user()->posts();
-dd($posts);
-// $posts= Post::all();
+ // $posts=  Auth::user()->posts();
+//$posts =auth()->user()->posts();
+// //dd($posts);
+$posts= Post::all();
     return view('admin.post.index',['posts'=>$posts]);
 }
 
@@ -123,6 +124,8 @@ public function update(Post $post,Request $request){
     }
       $post->title = $inputs['title'];
         $post->body = $inputs['body'];
+
+        $this->authorize('update',$post);
         $post->save();
 
    Session::flash('post-updated-message',$inputs['title'].'  was updated'); //Accessing sessions and showing message that post was deleted
@@ -168,8 +171,10 @@ public function update(Post $post,Request $request){
 
 public function destroy(Post $post){
 
+if(auth()->user()->id !==$post->user_id)
+{
 
-
+}
   $post->delete();
 Session::flash('message','Post '.$post->title.' was deleted'); //Accessing sessions and showing message that post was deleted
 
