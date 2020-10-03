@@ -50,7 +50,7 @@
                     <td>{{$post->id}}</td>
                     <td>{{$post->user->name}}</td>
                   <td><a href="{{route('post.edit', $post->id)}}">{{$post->title}}</a></td>
-                  <td>{{$post->title}}</td>
+
 
 
                         <td><img  height="90px"  width="90px" src="{{$post->path}}" alt=""></td>
@@ -59,6 +59,8 @@
                     <td>{{$post->updated_at}}</td>
                     <td>
 
+{{-- Policy So only owner of the post can  see delete button  --}}
+                        @can('view',$post)
 
                     <form action="{{route('post.destroy', $post->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
@@ -67,6 +69,7 @@
                             <button type="submit" class="btn btn-danger">Delete</button></td>
                         </form>
 
+                        @endcan
 
 
                   </tr>

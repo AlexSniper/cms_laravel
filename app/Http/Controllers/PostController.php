@@ -51,25 +51,6 @@ public function show(Post $post){
         return view('admin.post.create')->with('userId',$userId);
     }
 
-    // public function store(){
-
-    //     $this->authorize('create', Post::class);
-
-    //     $inputs = request()->validate([
-    //         'title'=> 'required|min:8|max:255',
-    //         'path'=> 'file',
-    //         'body'=> 'required'
-    //     ]);
-    //     if(request('path')){
-    //         $inputs['path'] = request('path')->store('images');
-    //     }
-    //     auth()->user()->posts()->create($inputs);
-
-    //     session()->flash('post-created-message', 'Post with title was created '. $inputs['title']);
-
-    //     return redirect()->route('post.index');
-
-    // }
 
 
 public function store(CreatePostRequest $request){
@@ -87,9 +68,7 @@ public function store(CreatePostRequest $request){
 
 
 public function index(){
- // $posts=  Auth::user()->posts();
-//$posts =auth()->user()->posts();
-// //dd($posts);
+
 $posts= Post::all();
     return view('admin.post.index',['posts'=>$posts]);
 }
@@ -97,7 +76,7 @@ $posts= Post::all();
 //Editing existing post in this method
 public function edit(Post $post){
     $userId= Auth::user()->id;
-    // $this->authorize('view', $post);
+  $this->authorize('view', $post);
 
         return view('admin.post.edit',['post'=>$post],['userId'=>$userId]);
     }
@@ -125,6 +104,7 @@ public function update(Post $post,Request $request){
       $post->title = $inputs['title'];
         $post->body = $inputs['body'];
 
+        //This line  of code not allowing not owner of the post to modify it Only owner could do it!!
         $this->authorize('update',$post);
         $post->save();
 
@@ -135,53 +115,22 @@ public function update(Post $post,Request $request){
 
 }
 
-// public function update(Post $post){
-
-//     $inputs = request()->validate([
-//         'title'=> 'required|min:8|max:255',
-//         'path'=> 'file',
-//         'body'=> 'required'
-//     ]);
-
-
-//     if(request('path')){
-//         $inputs['path'] = request('path')->store('images');
-//         $post->path = $inputs['path'];
-//     }
-
-//     $post->title = $inputs['title'];
-
-//     $post->body = $inputs['body'];
-
-
-//     $this->authorize('update', $post);
-
-
-//     $post->save();
-
-//     session()->flash('post-updated-message', 'Post with title was updated '. $inputs['title']);
-
-//     return redirect()->route('post.index');
-
-
-
-
-// }
 
 
 public function destroy(Post $post){
 
-if(auth()->user()->id !==$post->user_id)
-{
-
-}
-  $post->delete();
-Session::flash('message','Post '.$post->title.' was deleted'); //Accessing sessions and showing message that post was deleted
+// if(auth()->user()->id !==$post->user_id)
+// {
+    $this->authorize('delete', $post);
+    $post->delete();
+    Session::flash('message','Post '.$post->title.' was deleted'); //Accessing sessions and showing message that post was deleted
 
   return redirect()->route('post.index');
+}
+
 
 
 
 }
 
-}
+
