@@ -65,11 +65,11 @@ public function store(CreatePostRequest $request){
 }
 
 
-public function index(){
+public function index(User $user){
 $posts=auth()->user()->posts()->paginate(2);
-//  $posts= Post::all();
- return view('admin.post.index',['posts'=>$posts]);
-  //  return view('admin.post.index',['posts'=>$posts], ['user'=>$user]);
+//$posts= Post::all();
+  return view('admin.post.index',['posts'=>$posts]);
+// return view('admin.post.index',['posts'=>$posts], ['user'=>$user]);
 }
 
 //Editing existing post in this method
