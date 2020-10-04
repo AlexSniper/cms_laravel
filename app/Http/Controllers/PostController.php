@@ -19,9 +19,7 @@ class PostController extends Controller
 
 {
 
-public function what(){
-    $hz= new User();
-}
+
 
     //
 //Injecting class in order to have access to Post model
@@ -67,10 +65,10 @@ public function store(CreatePostRequest $request){
 }
 
 
-public function index(){
+public function index(User $user, Post $post){
 
-$posts= Post::all();
-    return view('admin.post.index',['posts'=>$posts]);
+ $posts= Post::all();
+    return view('admin.post.index',['posts'=>$posts], ['user'=>$user]);
 }
 
 //Editing existing post in this method

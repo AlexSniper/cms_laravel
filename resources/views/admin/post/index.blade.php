@@ -43,20 +43,51 @@
                 </tr>
               </tfoot>
               <tbody>
+
+
                   @foreach($posts as $post)
 
                   <tr>
 
-                    <td>{{$post->id}}</td>
-                    <td>{{$post->user->name}}</td>
-                  <td><a href="{{route('post.edit', $post->id)}}">{{$post->title}}</a></td>
+                    <td>
+
+                        {{$post->id}}
+
+                    </td>
 
 
 
-                        <td><img  height="90px"  width="90px" src="{{$post->path}}" alt=""></td>
+                    <td>
 
-                    <td>{{$post->created_at}}</td>
-                    <td>{{$post->updated_at}}</td>
+                        {{$post->user->name}}
+
+                    </td>
+
+
+
+                    <td>
+
+                    <a href="{{route('post.edit', $post->id)}}">{{$post->title}}</a>
+
+                </td>
+                        <td>
+
+                            <img  height="90px"  width="90px" src="{{$post->path}}" alt="">
+
+                        </td>
+
+                    <td>
+
+                        {{$post->created_at}}
+
+                    </td>
+
+                    <td>
+
+                        {{$post->updated_at}}
+
+                    </td>
+
                     <td>
 
 {{-- Policy So only owner of the post can  see delete button  --}}
