@@ -43,51 +43,27 @@
                 </tr>
               </tfoot>
               <tbody>
-
-
                   @foreach($posts as $post)
-
                   <tr>
-
                     <td>
-
                         {{$post->id}}
-
                     </td>
 
-
-
                     <td>
-
                         {{$post->user->name}}
-
                     </td>
-
-
-
                     <td>
-
                     <a href="{{route('post.edit', $post->id)}}">{{$post->title}}</a>
-
                 </td>
                         <td>
-
                             <img  height="90px"  width="90px" src="{{$post->path}}" alt="">
-
                         </td>
-
                     <td>
-
                         {{$post->created_at}}
-
                     </td>
-
                     <td>
-
                         {{$post->updated_at}}
-
-                    </td>
-
+                  </td>
                     <td>
 
 {{-- Policy So only owner of the post can  see delete button  --}}
@@ -111,6 +87,9 @@
           </div>
         </div>
       </div>
+
+      {{$posts->links()}}
+
     @endsection
 
     @section('scripts')
@@ -122,6 +101,6 @@
   <script src="{{asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
 
   <!-- Page level custom scripts -->
-  <script src="{{asset('js/demo/datatables-demo.js')}}"></script>
+  {{-- <script src="{{asset('js/demo/datatables-demo.js')}}"></script> --}}
     @endsection
 </x-admin-master>
