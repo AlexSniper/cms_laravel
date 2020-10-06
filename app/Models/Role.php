@@ -10,12 +10,21 @@ class Role extends Model
     protected $guarded = [];
 
 
+    public function permissions(){
+
+
+        return $this->belongsToMany(Permission::class);
+    }
+
+
 //Accessing User class
     public function users(){
 
 
         return $this->belongsToMany(User::class);
     }
+
+
 
 
 }
