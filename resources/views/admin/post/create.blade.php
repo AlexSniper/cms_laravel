@@ -10,6 +10,7 @@
             @csrf
 
 <p>{{$userId}}</p>
+{{-- <p>{{$$userRole}}</p> --}}
 <div class="form-group">
 <input type="hidden" name="user_id" value="{{$userId}}">
 </div>

@@ -14,7 +14,10 @@ protected $fillable = ['title', 'path','body','user_id'];
 //Accessing user model
         return $this->belongsTo(User::class);
     }
-
+    public function roles(){
+        //Accessing user model
+                return $this->belongsTo(User::class);
+            }
 
 
 
