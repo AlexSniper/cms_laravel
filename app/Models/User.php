@@ -59,9 +59,9 @@ class User extends Authenticatable
 
         return $this->belongsToMany(Permission::class);
     }
-public function userHasRole($role){
+public function userHasRole($role_id){
     foreach($this->roles as $role){
-        if($role == $role->name)
+        if($role_id == $role->name)
             return true;
     }
     return false;

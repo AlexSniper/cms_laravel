@@ -26,27 +26,19 @@ class PostController extends Controller
 
 
 public function show(Post $post){
-
-
     return view('blog-post', ['post'=> $post]);
 }
 
 
 
 
-    public function userId(){
-        $posts=  Auth::user()->posts();
 
-        //$posts= Post::all();
-            return view('admin.post.create',['post'=>$posts]);
-
-
-}
     public function create(){
 //Showing user id
-        $userId= Auth::user()->id;
+        $userId= Auth::user()->role_id;
+        dd($userId);
 
-        return view('admin.post.create')->with('userId',$userId);
+       // return view('admin.post.create')->with('userId',$userId);
     }
 
 
