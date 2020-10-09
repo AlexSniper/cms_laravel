@@ -46,6 +46,6 @@ Route::get('admin/users/{user}/profile',  [App\Http\Controllers\UserController::
 
 Route::middleware(['role:admin','auth'])->group(function(){
 
-    Route::get('admin/users', 'UserController@index')->name('users.index');
+    Route::get('admin/users',[App\Http\Controllers\UserController::class, 'index'])->name('users.index');
 });
 

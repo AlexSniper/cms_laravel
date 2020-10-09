@@ -2,25 +2,34 @@
     @section('content')
     <h1>
         {{-- @if(Auth::check()) --}}
-        {{$user->name}}'s
+        Hi {{$user->name}}
         {{-- @endif profile --}}
 <div class="col-sm-6">
     <form method="post" action="" enctype="multipart/form-data">
         @csrf
-        <div class="form-group">
-            <label for="name" >Name</label>
+<div class="mb-4">
 
-                <input name="name"
+    <img  height="50px" class="rounded-circle" src="https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-9/12715463_10201450219413165_1547790819211680626_n.jpg?_nc_cat=104&_nc_sid=09cbfe&_nc_ohc=hru4Bdqyw64AX-nPLXh&_nc_ht=scontent-yyz1-1.xx&oh=c8a8a7f5df150e46575278d7cda64a67&oe=5FA40B78" alt="">
+</div>
+
+        <div class="form-group">
+            <input type="file" class="form-control-file" name="fileToUpload" id="exampleInputFile">
+        </div>
+
+        <div class="form-group">
+            <label for="username" >UserName</label>
+
+                <input name="username"
                 type="text"
                  class="form-control"
-                 id="name"
-                 value={{$user->name}}>
+                 id="username"
+                 value={{$user->username}}>
 
         </div>
 
 
         <div class="form-group">
-            <label for="email" >Name</label>
+            <label for="email" >Email</label>
 
                 <input name="email"
                 type="text"
@@ -30,21 +39,27 @@
 
         </div>
 
-
         <div class="form-group">
-            <label for="">Game Publisher</label>
-            <div class="col-sm-9">
-                <input name="publisher" type="text" class="form-control" id=""
-                       placeholder=" Publisher">
-            </div>
+            <label for="password" >Password</label>
+
+                <input name="password"
+                type="text"
+                 class="form-control"
+                 id="password"
+                >
+
         </div>
-        <div class="form-group row">
-            <label for="releasedateid" class="col-sm-3 col-form-label">Release Date</label>
-            <div class="col-sm-9">
-                <input name="releasedate" type="text" class="form-control" id="releasedateid"
-                       placeholder="Release Date">
-            </div>
+        <div class="form-group">
+            <label for="password-confirm" >Confirm Password</label>
+
+                <input name="password_confirmation"
+                type="text"
+                 class="form-control"
+                 id="password_confirmation"
+                >
+
         </div>
+
 
                 <button type="submit" class="btn btn-primary">Submit</button>
 

@@ -44,11 +44,17 @@
           <li class="nav-item">
           <a class="nav-link" href="{{route('admin.index')}}">Admin</a>
           </li>
+          @else
+          <li class="nav-item"><a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="/register">Register</a>
+        </li>
+
 
 
 
           {{-- <li class="nav-item">
-            <a class="nav-link" href="{{route('post')}}">Post</a>
+            <a class="nav-lfnk" href="{{route('post')}}">Post</a>
             </li> --}}
             <li class="nav-item">
             <a  class="nav-link">
@@ -73,7 +79,7 @@
 
 
 
-          @else
+          {{-- @else --}}
 {{-- if user is not logged  logging menu will be shown --}}
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
