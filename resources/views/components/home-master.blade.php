@@ -41,6 +41,11 @@
 {{-- Checking that user is logged in --}}
 @if(Auth::check())
 {{-- if user is logged in he will see it --}}
+<li class="nav-item">
+    <a  class="nav-link">
+
+        {{ Auth::user()->name }}</a>
+    </li>
           <li class="nav-item">
           <a class="nav-link" href="{{route('admin.index')}}">Admin</a>
           </li>
@@ -56,10 +61,7 @@
           {{-- <li class="nav-item">
             <a class="nav-lfnk" href="{{route('post')}}">Post</a>
             </li> --}}
-            <li class="nav-item">
-            <a  class="nav-link">
-                {{ Auth::user()->name }}</a>
-            </li>
+
 
           <li class="nav-item">
 
