@@ -5,15 +5,16 @@
         Hi {{$user->name}}
         {{-- @endif profile --}}
 <div class="col-sm-6">
-    <form method="post" action="" enctype="multipart/form-data">
+<form method="post" action="{{route('user.profile.update', $user)}}" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
 <div class="mb-4">
 
     <img  height="50px" class="rounded-circle" src="https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-9/12715463_10201450219413165_1547790819211680626_n.jpg?_nc_cat=104&_nc_sid=09cbfe&_nc_ohc=hru4Bdqyw64AX-nPLXh&_nc_ht=scontent-yyz1-1.xx&oh=c8a8a7f5df150e46575278d7cda64a67&oe=5FA40B78" alt="">
 </div>
 
         <div class="form-group">
-            <input type="file" class="form-control-file" name="fileToUpload" id="exampleInputFile">
+            <input type="file" class="form-control-file" name="avatar" id="exampleInputFile">
         </div>
 
         <div class="form-group">
