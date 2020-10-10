@@ -35,7 +35,7 @@ public function show(Post $post){
 
     public function create(){
 //Showing user id
-        $userId= Auth::user()->role_id;
+        $userId= Auth::user()->id;
         // dd($userId);
 
       return view('admin.post.create')->with('userId',$userId);

@@ -49,6 +49,21 @@
           <li class="nav-item">
           <a class="nav-link" href="{{route('admin.index')}}">Admin</a>
           </li>
+
+          <li class="nav-item">
+
+            <a class="nav-link" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+
+
+        </li>
           @else
           <li class="nav-item"><a class="nav-link" href="/login">Login</a>
         </li>
@@ -63,29 +78,14 @@
             </li> --}}
 
 
-          <li class="nav-item">
 
-                <a class="nav-link" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-
-
-            </li>
 
 
 
 
           {{-- @else --}}
 {{-- if user is not logged  logging menu will be shown --}}
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
-            </li>
+
 
             @endif
 
