@@ -44,7 +44,17 @@ public function setPasswordAttribute($value){
     $this->attributes['password']= bcrypt($value);
 }
 
+//getting access to avatar
+public function getAvatarImageAttribute($value){
+    return asset($value);
+}
 
+   //getting access to the photos
+   public function photos(){
+    return $this->morphMany('App\User', 'imageable');
+}
+ //Including directory for storing images
+ public $directory ="/images/";
 
     public function getAvatarAttribute($value){
         return asset($value);
@@ -59,6 +69,7 @@ public function setPasswordAttribute($value){
         return $this->belongsToMany(Role::class);
 
     }
+
     public function permissions(){
 
 

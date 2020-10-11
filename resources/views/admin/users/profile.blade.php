@@ -10,21 +10,43 @@
         @method('PUT')
 <div class="mb-4">
 
-    <img  height="50px" class="rounded-circle" src="https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-9/12715463_10201450219413165_1547790819211680626_n.jpg?_nc_cat=104&_nc_sid=09cbfe&_nc_ohc=hru4Bdqyw64AX-nPLXh&_nc_ht=scontent-yyz1-1.xx&oh=c8a8a7f5df150e46575278d7cda64a67&oe=5FA40B78" alt="">
+<img  height="50px" class="rounded-circle" src="{{$user->avatar}}" alt="">
 </div>
 
         <div class="form-group">
-            <input type="file" class="form-control-file" name="avatar" id="exampleInputFile">
+            <input type="file" class="form-control-file" name="avatar" id="avatar">
         </div>
 
         <div class="form-group">
             <label for="username" >UserName</label>
 
-                <input name="username"
+                <input
+                name="username"
+        {{-- class="form-control{{$errors->has('username') ? 'is-invalid':''}}" --}}
+        class="form-cotrol @error('username') is-invalid @enderror"
                 type="text"
                  class="form-control"
                  id="username"
                  value={{$user->username}}>
+
+                 @error('username')
+        <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
+
+        </div>
+
+        <div class="form-group">
+            <label for="name" >Name</label>
+
+                <input name="name"
+                type="text"
+                 class="form-control"
+                 id="name"
+                 value={{$user->name}}>
+
+                 @error('name')
+        <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
 
         </div>
 
@@ -38,6 +60,10 @@
                  id="email"
                  value={{$user->email}}>
 
+                 @error('email')
+                 <div class="alert alert-danger">{{$message}}</div>
+                             @enderror
+
         </div>
 
         <div class="form-group">
@@ -46,8 +72,11 @@
                 <input name="password"
                 type="text"
                  class="form-control"
-                 id="password"
+                 id=""
                 >
+                @error('password')
+                <div class="alert alert-danger">{{$message}}</div>
+                            @enderror
 
         </div>
         <div class="form-group">
@@ -58,7 +87,9 @@
                  class="form-control"
                  id="password_confirmation"
                 >
-
+                @error('password_confirmation')
+                <div class="alert alert-danger">{{$message}}</div>
+                            @enderror
         </div>
 
 
