@@ -5,7 +5,7 @@
         Hi {{$user->name}}
         {{-- @endif profile --}}
 <div class="col-sm-6">
-<form method="post" action="{{route('user.profile.update', $user)}}" enctype="multipart/form-data">
+<form method="post" action="{{route('user.profile.update', $user->id)}}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 <div class="mb-4">
@@ -65,20 +65,19 @@
                              @enderror
 
         </div>
-
         <div class="form-group">
-            <label for="password" >Password</label>
+            <label for="password">Password</label>
+            <input type="password"
+                   name="password"
+                   class="form-control @error('password') is-invalid @enderror"
+                   id="password"
+            >
 
-                <input name="password"
-                type="text"
-                 class="form-control"
-                 id=""
-                >
-                @error('password')
-                <div class="alert alert-danger">{{$message}}</div>
-                            @enderror
+            @error('password')
+            <div class="alert alert-danger">{{$message}}</div>
+            @enderror
+    </div>
 
-        </div>
         <div class="form-group">
             <label for="password-confirm" >Confirm Password</label>
 
