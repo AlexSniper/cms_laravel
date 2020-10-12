@@ -10,11 +10,11 @@
         @method('PUT')
 <div class="mb-4">
 
-<img  height="50px" class="rounded-circle" src="{{$user->avatar}}" alt="">
+<img  height="50px" class="rounded-circle" src="{{$user->avatar}}">
 </div>
 
         <div class="form-group">
-            <input type="file" class="form-control-file" name="avatar" id="avatar">
+            <input type="file" class="form-control-file" name="avatar">
         </div>
 
         <div class="form-group">
