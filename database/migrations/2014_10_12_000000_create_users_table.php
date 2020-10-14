@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('username')->nullable()->unique();
             $table->string('name');
             $table->integer('role_id')->nullable();
-            $table->text('avatar')->nullable();
+            $table->text('avatar')->default('default.jpg');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

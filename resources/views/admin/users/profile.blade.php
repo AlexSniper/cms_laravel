@@ -5,12 +5,13 @@
         Hi {{$user->name}}
         {{-- @endif profile --}}
 <div class="col-sm-6">
+    <img src="/uploads/avatars/{{ $user->avatar }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
 <form method="post" action="{{route('user.profile.update', $user->id)}}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 <div class="mb-4">
 
-<img  height="50px" class="rounded-circle" src="{{$user->avatar}}">
+{{-- <img  height="50px" class="rounded-circle" src="/uploads/avatars/{{$user->avatar}}"> --}}
 </div>
 
         <div class="form-group">
