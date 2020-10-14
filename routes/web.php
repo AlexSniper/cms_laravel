@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 
-
+//This route responsible for home page
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/post/{post}',[App\Http\Controllers\PostController::class, 'show'])->name('post');
