@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminsController extends Controller
 {
     //
     public function index(){
-        return view('admin.index');
+        return view('admin.index',array('user' => Auth::user()));
     }
 
 

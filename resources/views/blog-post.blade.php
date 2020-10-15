@@ -11,6 +11,8 @@
      by
    <a href="#">{{$post->user->name}}</a>
    </p>
+   <img class="img-profile rounded-circle" src="/uploads/avatars/{{auth()->user()->avatar}}">
+
 
    <hr>
 

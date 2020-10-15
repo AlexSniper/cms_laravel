@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {
@@ -22,23 +23,27 @@ $inputs =request()->validate([
    // 'password'=>['min:6','max:255','confirmed']
 ]);
 
-if($request->hasfile('avatar')){
-    $file= $request->file('avatar');
-    $extension =$file->getClientOriginalExtension();
-    $filename= md5(time()).'.'.$extension;
-    $file->move(public_path().'\images',$filename);
-    $user->avatar = $filename;
+if($request->hasFile('avatar')){
+    $avatar = $request->file('avatar');
+    $filename = time() . '.' . $avatar->getClientOriginalExtension();
+    Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
+    $user = Auth::user();
+    		$user->avatar = $filename;
+    		$user->save();
 }
-        // if(request('avatar')){
-        //     //dd(request('avatar'));
-        //     $inputs['avatar']=request('avatar')->store('images');
-        // }
-        // $user->update($inputs);
+// if($request->hasfile('avatar')){
+//     $file= $request->file('avatar');
+//     $extension =$file->getClientOriginalExtension();
+//     $filename= md5(time()).'.'.$extension;
+//     $file->move(public_path().'\images',$filename);
+//     $user->avatar = $filename;
+// }
+
 
         $user->username = $inputs['username'];
         $user->name = $inputs['name'];
         $user->email = $inputs['email'];
-        $user->avatar = $inputs['avatar'];
+      // $user->avatar = $inputs['avatar'];
 
         $this->authorize('update',$user);
         $user->save();
