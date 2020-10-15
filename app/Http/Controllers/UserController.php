@@ -10,9 +10,18 @@ use Intervention\Image\Facades\Image;
 class UserController extends Controller
 {
     //
+public function index(){
+
+    $users= User::all();
+
+    return view('admin.users.index',['users'=>$users]);
+}
+
     public function show(User $user){
         return view('admin.users.profile',array('user' => Auth::user()));
     }
+
+
 //It's Update method
     public function update(User $user,Request $request){
 $inputs =request()->validate([
