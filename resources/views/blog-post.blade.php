@@ -11,7 +11,7 @@
      by
    <a href="#">{{$post->user->name}}</a>
    </p>
-   <img class="img-profile rounded-circle" src="/uploads/avatars/{{auth()->user()->avatar}}">
+   <img width="100px" class="img-profile rounded-circle" src="/uploads/avatars/{{$post->user->avatar}}">
 
 
    <hr>
@@ -23,7 +23,7 @@
 
    <!-- Preview Image -->
 
-   <img width="100px" class="img-fluid rounded" src="{{$post->path}}" alt="">
+   <img width=auto class="img-fluid rounded" src="{{$post->path}}" alt="">
 
    <hr>
 

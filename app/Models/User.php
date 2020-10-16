@@ -43,11 +43,11 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($value);
     }
     //Including directory for storing images
- public $directory ="";
+//  public $directory ="";
 
-    public function getAvatarAttribute($value){
-        return $this->directory.$value;
-    }
+    // public function getAvatarAttribute($value){
+    //     return $this->directory.$value;
+    // }
 
 
 
