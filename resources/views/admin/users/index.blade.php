@@ -2,6 +2,9 @@
     @section('content')
 
 <h1>Users</h1>
+@if( session('user-deleted'))
+<div class="alert alert-danger">{{session('user-deleted')}}</div>
+@endif
 <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
   </div>
@@ -18,6 +21,7 @@
               <th>Name</th>
               <th>Registred</th>
               <th>Updeted Profile date</th>
+              <th>Delete</th>
 
           </tr>
         </thead>
@@ -30,6 +34,7 @@
               <th>Name</th>
               <th>Registred</th>
               <th>Updeted Profile date</th>
+              <th>Delete</th>
 
           </tr>
         </tfoot>
@@ -57,7 +62,13 @@
               <td>
                   {{$user->updated_at}}
             </td>
-              <td>
+        <td> <form method="post" action="{{route('user.destroy', $user->id)}}">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-danger">Delete</button>
+
+        </form></td>
+
 
 
             </tr>
@@ -68,7 +79,9 @@
     </div>
   </div>
 </div>
+@endsection
 
+@section('scripts')
  <!-- Page level plugins -->
  <script src="{{asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
  <script src="{{asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>

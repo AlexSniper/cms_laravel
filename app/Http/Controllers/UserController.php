@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use session;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
+
 
 class UserController extends Controller
 {
@@ -40,13 +42,7 @@ if($request->hasFile('avatar')){
     		$user->avatar = $filename;
     		$user->save();
 }
-// if($request->hasfile('avatar')){
-//     $file= $request->file('avatar');
-//     $extension =$file->getClientOriginalExtension();
-//     $filename= md5(time()).'.'.$extension;
-//     $file->move(public_path().'\images',$filename);
-//     $user->avatar = $filename;
-// }
+
 
 
         $user->username = $inputs['username'];
@@ -59,4 +55,16 @@ if($request->hasFile('avatar')){
         return back();
      //   return view('admin.users.profile',['user'=>$user]);
     }
+
+
+    public function destroy(User $user){
+
+        // if(auth()->user()->id !==$post->user_id)
+        // {
+            $this->authorize('delete', $user);
+            $user->delete();
+            session()->flash('user-deleted','user '.$user->name.' has been deleted');
+
+          return redirect()->route('user.index');
+        }
 }
