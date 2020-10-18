@@ -12,6 +12,10 @@ use Intervention\Image\Facades\Image;
 class UserController extends Controller
 {
     //
+    public function __construct()
+    {
+    //   $this->middleware('role');
+    }
 public function index(){
 
     $users= User::all();
