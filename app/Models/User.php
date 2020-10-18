@@ -70,7 +70,7 @@ class User extends Authenticatable
 
     public function userHasRole($role_name){
         foreach($this->roles as $role){
-            if(Str::lower($role_name) == Str::lower($role->name))
+            if(($role_name) == $role->slug)
                 return true;
         }
 
