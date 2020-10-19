@@ -11,13 +11,24 @@ class AdminsController extends Controller
 {// Applying middleware
     public function __construct(){
 
-       $this->middleware('role');
+       //$this->middleware('isAdmin');
         }
-        public function index(){
-            return view('admin.index',array('user' => Auth::user()));
-        }
+        // public function index(){
+        //     return view('admin.index',array('user' => Auth::user()));
+        // }
 
     //
+
+public function index(){
+
+    $users= User::all();
+
+    return view('admin.users.index',['users'=>$users]);
+}
+
+    public function show(User $user){
+        return view('admin.users.profile',array('user' => Auth::user()));
+    }
 
 
 }

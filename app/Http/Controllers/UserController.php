@@ -12,20 +12,17 @@ use Intervention\Image\Facades\Image;
 class UserController extends Controller
 {
     //
-    public function __construct()
-    {
-    //   $this->middleware('role');
-    }
-public function index(){
 
-    $users= User::all();
+// public function index(){
 
-    return view('admin.users.index',['users'=>$users]);
-}
+//     $users= User::all();
 
-    public function show(User $user){
-        return view('admin.users.profile',array('user' => Auth::user()));
-    }
+//     return view('admin.users.index',['users'=>$users]);
+// }
+
+//     public function show(User $user){
+//         return view('admin.users.profile',array('user' => Auth::user()));
+//     }
 
 
 //It's Update method

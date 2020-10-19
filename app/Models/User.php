@@ -68,7 +68,7 @@ class User extends Authenticatable
 
     }
 
-    public function userHasRole($role_name){
+    public function userHasRole(Role $role, $role_name){
         foreach($this->roles as $role){
             if(($role_name) == $role->slug)
                 return true;

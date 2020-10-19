@@ -50,6 +50,6 @@ Route::delete('/admin/user/{user}/destroy', [App\Http\Controllers\UserController
 
 Route::middleware(['role:admin','auth'])->group(function(){
 
- Route::get('admin/users',[App\Http\Controllers\UserController::class, 'index'])->name('user.index');
+ Route::get('admin/users',[App\Http\Controllers\AdminController::class, 'index'])->name('user.index');
 });
 
