@@ -9,26 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminsController extends Controller
 {// Applying middleware
-    public function __construct(){
+    public function index(){
+        $users= User::all();
 
-       //$this->middleware('isAdmin');
-        }
-        // public function index(){
-        //     return view('admin.index',array('user' => Auth::user()));
-        // }
 
-    //
 
-public function index(){
 
-    $users= User::all();
+        return view('admin.index',['users'=>$users]);
 
-    return view('admin.users.index',['users'=>$users]);
-}
-
-    public function show(User $user){
-        return view('admin.users.profile',array('user' => Auth::user()));
     }
-
 
 }

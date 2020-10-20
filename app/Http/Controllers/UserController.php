@@ -20,9 +20,9 @@ class UserController extends Controller
 //     return view('admin.users.index',['users'=>$users]);
 // }
 
-//     public function show(User $user){
-//         return view('admin.users.profile',array('user' => Auth::user()));
-//     }
+    public function show(User $user){
+        return view('admin.users.profile',array('user' => Auth::user()));
+    }
 
 
 //It's Update method
