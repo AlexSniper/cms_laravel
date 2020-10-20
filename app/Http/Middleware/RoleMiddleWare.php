@@ -15,19 +15,16 @@ class RoleMiddleWare
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next,Role $role){
-        $user= Auth::user();
-        if(!$user->userHasRole($role)){
+    public function handle($request, Closure $next, $role){
+        // $user= Auth::user();
+        if(!$request->user()->userHasRole($role)){
             abort(403, 'You are not authorized');
-            //  echo "this is user is admen";
+        }
 
-            //  return redirect('/subscriber');
-             //return 'You are not Admin you are pes';
-          }
-        // if(!$request->user()->userHasRole($role)){
-        //     abort(403, 'You are not authorized');
-        // }
 
         return $next($request);
+
+
+
     }
 }
