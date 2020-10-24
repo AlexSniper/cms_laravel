@@ -1,7 +1,7 @@
 <x-admin-master>
     @section('content')
 
-     @if(auth()->user()->userHasRole('admin'))
+     @if(auth()->user()->isAdmin('admin'))
 
      <img src="/uploads/avatars/{{auth()->user()->avatar}}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
 

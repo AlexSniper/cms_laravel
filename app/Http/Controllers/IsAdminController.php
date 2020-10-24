@@ -8,23 +8,19 @@ class IsAdminController extends Controller
 {
     //
 
-    public function __construct(){
+//     public function __construct(){
 
-        $this->middleware('isAdmin');
-         }
-         // public function index(){
-         //     return view('admin.index',array('user' => Auth::user()));
-         // }
+//         $this->middleware('isAdmin');
+//          }
 
-     //
 
- public function index(){
+//  public function index(){
 
-    $users= User::all();
+//     $users= User::all();
 
-     return view('admin.users.index',['users'=>$users]);
+//      return view('admin.users.index',['users'=>$users]);
 
- }
+//  }
 
 
 

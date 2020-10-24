@@ -62,21 +62,30 @@ class User extends Authenticatable
 
     }
 
-    public function roles(){
+//     public function roles(){
 
-        return $this->belongsToMany(Role::class);
+//         return $this->belongsToMany(Role::class);
+
+//     }
+
+//     public function userHasRole($role_name){
+//         foreach($this->roles as $role){
+//             if(Str::lower($role_name) == Str::lower($role->name))
+//                 return true;
+//         }
+
+//         return false;
+// }
+
+public function roles(){
+    return $this->belongsTo(Role::class);
+}
+
+public function isAdmin(){
+    if($this->role->name == 'admin'){
+        return true;
 
     }
-
-    public function userHasRole($role_name){
-        foreach($this->roles as $role){
-            if(Str::lower($role_name) == Str::lower($role->name))
-                return true;
-        }
-
-        return false;
-
-
-
+    return false;
 }
 }
