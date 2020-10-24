@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -20,10 +21,10 @@ class Role extends Model
 //Accessing User class
 
 
-    public function roles(){
-        return $this->belongsTo(User::class);
-    }
+public function users(){
 
+    return $this->belongsToMany('App\User');
+}
 
 
 }

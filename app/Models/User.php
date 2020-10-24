@@ -78,10 +78,10 @@ class User extends Authenticatable
 // }
 
 public function roles(){
-    return $this->belongsTo(Role::class);
+    return $this->belongsTo(Role::class,'user_role', 'user_id', 'role-id');
 }
 
-public function isAdmin(){
+public function userHasRole(){
     if($this->role->name == 'admin'){
         return true;
 

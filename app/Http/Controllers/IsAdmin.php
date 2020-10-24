@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class IsAdmin extends Controller
@@ -9,7 +10,7 @@ class IsAdmin extends Controller
     //
     public function __construct(){
 
-    $this->middleware('IsAdmin');
+ //   $this->middleware('role');
      }
 
 public function index(){

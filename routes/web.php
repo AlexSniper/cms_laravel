@@ -48,7 +48,7 @@ Route::delete('/admin/user/{user}/destroy', [App\Http\Controllers\UserController
 
 //Route::get('/admin/posts/{post}/edit', [App\Http\Controllers\PostController::class, 'edit'])->middleware('can:view, post')->name('post.edit');
 
- Route::middleware(['IsAdmin:admin','auth'])->group(function(){
+Route::middleware(['role:admin','auth'])->group(function(){
 
  Route::get('admin/users',[App\Http\Controllers\IsAdmin::class, 'index'])->name('user.index');
 });

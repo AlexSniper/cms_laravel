@@ -12,7 +12,7 @@ class AdminsController extends Controller
 
     public function __construct(){
 
-        $this->middleware('IsAdmin');
+     //   $this->middleware('role');
          }
 
     public function index(){
