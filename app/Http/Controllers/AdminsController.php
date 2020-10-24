@@ -16,7 +16,7 @@ class AdminsController extends Controller
          }
 
     public function index(){
-        $users= User::all();
+         $users= User::all();
 
 
 
@@ -26,3 +26,7 @@ class AdminsController extends Controller
     }
 
 }
+
+
+
+
