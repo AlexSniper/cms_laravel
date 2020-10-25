@@ -19,6 +19,7 @@
               <th>Username</th>
               <th>Avatar</th>
               <th>Name</th>
+              <th>User_role</th>
               <th>Registred</th>
               <th>Updeted Profile date</th>
               <th>Delete</th>
@@ -32,6 +33,7 @@
               <th>Username</th>
               <th>Avatar</th>
               <th>Name</th>
+              <th>User_role</th>
               <th>Registred</th>
               <th>Updeted Profile date</th>
               <th>Delete</th>
@@ -48,6 +50,8 @@
               <td>
                   {{$user->username}}
               </td>
+
+
 
                   <td>
                       <img  height="90px"  width="90px" src="/uploads/avatars/{{ $user->avatar}}" alt="">

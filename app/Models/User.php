@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -78,14 +79,13 @@ class User extends Authenticatable
 // }
 
 public function roles(){
-    return $this->belongsTo(Role::class,'user_role', 'user_id', 'role-id');
+    return $this->belongsToMany(Role::class)->withPivot('user_id','created_at');
 }
 
 public function userHasRole(){
-    if($this->role->name == 'admin'){
+
         return true;
 
     }
-    return false;
-}
+
 }
